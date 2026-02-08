@@ -1,6 +1,6 @@
 import './global.css';
 import { View, FlatList } from 'react-native';
-import { ItemCard } from './component/ltemCard';
+import ItemCard from './component/ltemCard';
 
 export default function index() {
   const data = [
@@ -26,7 +26,7 @@ export default function index() {
       prict: 2000,
       pcs: 10,
       btnVariant: 'danger' as const,
-      btnSize: 'L',
+      btnSize: 'L' as const,
     },
   ];
 
