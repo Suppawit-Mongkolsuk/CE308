@@ -54,7 +54,7 @@ export default function index() {
 } 
 */
 // ===================================================================
-// Workshop 2
+// Workshop 3.2
 
 export default function Index() {
   const [value, setValue] = useState('');
