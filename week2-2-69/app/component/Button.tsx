@@ -2,9 +2,10 @@ import { Text, Pressable } from 'react-native';
 
 type ButtonProps = {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
   variant?: 'primary' | 'secondary' | 'danger' | 'undefined';
   size?: 'S' | 'L' | 'XL' | 'undefined';
+  fullWidth?: boolean;
 };
 
 const CustomButton = ({
@@ -12,10 +13,11 @@ const CustomButton = ({
   onPress,
   variant = 'primary',
   size = 'L',
+  fullWidth = false,
 }: ButtonProps) => {
   const variantStyles = {
     primary: 'bg-blue-500',
-    secondary: 'bg-gray-500',
+    secondary: 'bg-yellow-500',
     danger: 'bg-red-500',
     undefined: 'bg-blue-500',
   };
@@ -27,9 +29,11 @@ const CustomButton = ({
     undefined: 'px-5 py-3',
   };
 
+  const widthClass = fullWidth ? 'w-full' : 'self-start';
+
   return (
     <Pressable
-      className={`${variantStyles[variant]} ${sizeStyles[size]} rounded-lg`}
+      className={`${variantStyles[variant]} ${sizeStyles[size]} ${widthClass} rounded-lg`}
       onPress={onPress}
     >
       <Text className="text-white text-center font-medium">{title}</Text>

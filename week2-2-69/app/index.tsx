@@ -1,7 +1,10 @@
 import './global.css';
-import { View, FlatList } from 'react-native';
-import ItemCard from './component/ltemCard';
+import { View, Text } from 'react-native';
+import { useState } from 'react';
+import { Input } from './component/Input';
+import CustomButton from './component/Button';
 
+/* 
 export default function index() {
   const data = [
     {
@@ -46,6 +49,43 @@ export default function index() {
           />
         )}
       />
+    </View>
+  );
+} 
+*/
+// ===================================================================
+// Workshop 2
+
+export default function Index() {
+  const [value, setValue] = useState('');
+  const [prict, setPrict] = useState('');
+  const [pcs, setPcs] = useState('');
+
+  return (
+    <View className="p-4">
+      <Text className="text-blue-600 mb-1 text-2xl font-bold">
+        กรอกข้อมูลสินค้า
+      </Text>
+
+      <Input
+        label="ชื่อสินค้า"
+        value={value}
+        onChangeText={setValue}
+        placeholder="กรอกชื่อสินค้า"
+      />
+      <Input
+        label="ราคา"
+        value={prict}
+        onChangeText={setPrict}
+        placeholder="กรอกราคา"
+      />
+      <Input
+        label="จำนวน"
+        value={pcs}
+        onChangeText={setPcs}
+        placeholder="กรอกจำนวน"
+      />
+      <CustomButton title="บันทึกข้อมูล" variant="primary" size="L" />
     </View>
   );
 }
